@@ -1,0 +1,22 @@
+
+flowchart TD
+    A([User]) --> B[UI - User Interface]
+    B --> C[FastAPI Backend]
+
+    C --> D{Request Type}
+
+    D -->|Document Question| E[Document Retrieval]
+    D -->|Customer Query| F[CRM Tool]
+    D -->|Order Query| G[Order Service]
+    D -->|Email Request| H[Email Draft Generator]
+
+    E --> I[(Vector Store)]
+    F --> J[(PostgreSQL)]
+    G --> J
+
+    I --> K[Response]
+    J --> K
+    H --> K
+
+    K --> B
+    B --> A
